@@ -13,13 +13,13 @@ class Shoe {
     required this.description,
     required this.price,
   }) : id = '${DateTime.now().toIso8601String()}_${Random().nextInt(1000)}';
-}
 
-  // factory Shoe.fromJson(Map<String, dynamic> json) {
-  //   return Shoe(
-  //     name: json['name'],
-  //     image: json['image'],
-  //     description: json['description'],
-  //     price: json['price'].toDouble(),
-  //   );
-  // }
+  factory Shoe.fromJson(Map<String, dynamic> json) {
+    return Shoe(
+      name: json['title'],
+      image: json['thumbnail'],
+      description: json['description'],
+      price: json['price'].toDouble(),
+    );
+  }
+}

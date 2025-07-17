@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_minimal_ecommerce_app/models/shoe.dart';
 
-class ShoeTile extends StatelessWidget {
+class ShoeTileAll extends StatelessWidget {
 
   final Shoe shoe;
   void Function()? onAddToCart;
   
 
-  ShoeTile({super.key, required this.shoe, required this.onAddToCart});
+  ShoeTileAll({super.key, required this.shoe, required this.onAddToCart});
 
   bool _isNetworkImage(String path) {
     return path.startsWith('http://') || path.startsWith('https://');
@@ -16,7 +16,7 @@ class ShoeTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.only(left: 25),
+      margin: const EdgeInsets.symmetric(horizontal: 25, vertical: 16),
       width: 280,
       decoration: BoxDecoration(
         color: Colors.grey.shade100,
@@ -51,10 +51,10 @@ class ShoeTile extends StatelessWidget {
           ),
 
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 25),
+            padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 25),
             child: Text(
               shoe.description,
-              maxLines: 3,
+              maxLines: 2,
               overflow: TextOverflow.ellipsis,
               style: TextStyle(
                 color: Colors.grey.shade600,

@@ -26,6 +26,11 @@ class Cart extends ChangeNotifier {
     notifyListeners();
   }
 
+  void clearCart() {
+    items.clear();
+    notifyListeners();
+  }
+
   double get totalCartPrice {
     return items.fold(0, (total, cartItem) => total + cartItem.totalItemPrice);
   }

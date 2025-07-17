@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_minimal_ecommerce_app/components/bottom_nav_bar.dart';
+import 'package:flutter_minimal_ecommerce_app/models/cart.dart';
 import 'package:flutter_minimal_ecommerce_app/pages/cart_page.dart';
 import 'package:flutter_minimal_ecommerce_app/pages/shop_page.dart';
+import 'package:provider/provider.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -13,9 +15,9 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   // selected tab index
   int selectedTabIndex = 0;
+  
   // method to handle tab changes
   void navigateOnTabChange(int index) {
-    // You can implement navigation logic here based on the selected tab index
     setState(() {
       selectedTabIndex = index;
     });
@@ -33,6 +35,7 @@ class _HomePageState extends State<HomePage> {
       backgroundColor: Colors.grey.shade300,
       bottomNavigationBar: BottomNavBar(
         onTabChange: (index) => navigateOnTabChange(index),
+        cartItemCount: Provider.of<Cart>(context).items.length,
       ),
       appBar: AppBar(
         backgroundColor: Colors.transparent,
